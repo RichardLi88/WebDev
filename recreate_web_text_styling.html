@@ -3,7 +3,6 @@
         font-family: Arial, Helvetica, sans-serif;
         margin-top: 0;
         margin-bottom: 0;
-        text-align: center;
     }
 
     .bold {
@@ -31,7 +30,7 @@
     }
 
     .buy {
-        margin-left: 45%;
+        margin-left: 47%;
         color: white;
         background-color: rgb(55, 159, 250);
         border: none;
@@ -43,23 +42,61 @@
         border-radius: 8px;
     }
 
+    .stock-price{
+        margin-top: 20px;
+    }
+
+    .center {
+        text-align: center;
+    }
+
+    .currency {
+        font-size: 10px;
+        color: gray;
+    }
+
+    .good-change {
+        font-size: 9px;
+        color: green;
+        margin-top: 3px;
+        margin-bottom: 3px;
+    }
+
+    .closing {
+        color: gray;
+        font-size: 10px;
+    }
+
+    .bad-change {
+        color: rgb(174, 0, 0);
+    }
 
 
 </style>
 <body>
-    <p class="new bold">
+    <p class="center new bold">
         New
     </p>
-    <p class="item-name bold">
+    <p class="center item-name bold">
         MacBook Pro
     </p>
-    <p class="item-desc bold">
+    <p class="center item-desc bold">
         Supercharged for pros.
     </p>
-    <p class="item-price">
+    <p class="center item-price">
         From $1999
     </p>
-    <button class="buy">
+    <button class="center buy">
         Buy
     </button>
+    
+    <p class="stock-price">
+        1049.61 <span class="currency">USD</span>
+    </p>
+    <p class="good-change">
+        +18.05 (1.75%) today
+    </p>
+    <p class="closing">
+        After hours 1,045.00 <span class="bad-change">-1.61 (0.15%)</span>
+    </p>
 </body>
