@@ -1,11 +1,54 @@
 <style>
+    .nav {
+        padding-right: 3px;
+        padding-left: 3px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+    .page {
+        border: none;
+        background-color: white;
+        font-style: italic;
+        transition: color 150ms;
+    }
+
+    .page:hover {
+        color: red;
+    }
+
+    .button:hover {
+        cursor: pointer;
+
+    }
+
 
 </style>
 <title>
     Box Model Practice
 </title>
-<div>
-    <button>
-        
-    </button>
-</div>
+<body>
+    <div>
+        <button class="button nav">
+            Back
+        </button>
+        <button class="button page">
+            1
+        </button>
+        <button class="button page">
+            2
+        </button>
+        <button class="button page">
+            3
+        </button>
+        <button class="button page">
+            4
+        </button>
+        <button class="button page">
+            5
+        </button>
+        <button class="button nav">
+            Next
+        </button>
+    </div>
+</body>
