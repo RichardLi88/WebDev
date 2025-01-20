@@ -3,6 +3,15 @@
         color: rgb(0,113,133);
         margin-bottom: 10px;
     }
+
+    .amazon-link:hover {
+        color: rgb(1, 71, 84);
+    }
+
+    .amazon-link:active {
+        color: rgb(241, 13, 1);
+    }
+
     .cost {
         color: rgb(0,118,0);
         font-weight: bold;
@@ -19,14 +28,28 @@
         border-radius: 18px;
         border: none;
         cursor: pointer;
+        transition: opacity 150ms,
+                    background-color 150ms;
+    }
+
+    .button:active {
+        opacity: 0.5;
     }
 
     .cart {
         background-color: rgb(255,216,20);
     }
 
+    .cart:hover {
+        background-color: rgb(250, 192, 0);
+    }
+
     .buy {
         background-color: rgb(255, 164, 28);
+    }
+
+    .buy:hover {
+        background-color: rgb(255, 140, 0);
     }
 
 
