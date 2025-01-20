@@ -23,6 +23,31 @@
     }
 
 
+
+    .stretch {
+        margin-top: 20px;
+        border: none;
+        background-color: rgb(3, 144, 3);
+        color: white;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 4px;
+        padding-bottom: 4px;
+        font-size: 10px;
+        transition: padding-left 300ms, 
+                    padding-right 300ms, 
+                    padding-top 300ms, 
+                    padding-bottom 300ms;
+    }
+
+    .stretch:hover {
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+
+
 </style>
 <title>
     Box Model Practice
@@ -49,6 +74,12 @@
         </button>
         <button class="button nav">
             Next
+        </button>
+    </div>
+
+    <div>
+        <button class="button stretch">
+            Stretch
         </button>
     </div>
 </body>
