@@ -18,3 +18,45 @@
     border-radius: 28px;
     padding-left: 20px;
 }
+
+.spacing {
+    margin-top: 20px;
+}
+
+.cat {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 25px;
+    vertical-align: middle;
+}
+
+.text-tweet {
+    vertical-align: middle;
+    font-size: 16px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: none;
+    border-radius: 10px;
+    padding-left: 10px;
+}
+
+
+.btn-tweet {
+    vertical-align: middle;
+    font-weight: bold;
+    font-size: 16px;
+    background-color: rgb(0, 179, 255);
+    border: none;
+    color: white;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 18px;
+}
+
+.btn-tweet:hover {
+    opacity: 0.5;
+}
+
