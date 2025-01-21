@@ -5,12 +5,7 @@ p {
 }
 
 .vid-container {
-    width: 250px;
-    height: 250px;
-    margin-left: 10px;
-    margin-right: 10px;
-    display: inline-block;
-
+    width: 100%;
 }
 .thumbnail {
     width: 100%;
@@ -24,10 +19,8 @@ p {
 
 .vid-info {
     margin-top: 15px;
-}
-
-.in-line {
-    display: inline-block;
+    display: grid;
+    grid-template-columns: 30px 1fr;
 }
 
 .channel-pic {
@@ -52,4 +45,11 @@ p {
     margin-top: 5px;
     margin-bottom: 5px;
     font-size: 14px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 15px;
+    row-gap: 30px;
 }
