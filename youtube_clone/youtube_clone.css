@@ -1,9 +1,3 @@
-p {
-    font-family: Roboto, Arial;
-    margin-top: 0px;
-    margin-bottom: 0px;
-}
-
 .vid-container {
     width: 100%;
 }
@@ -35,7 +29,7 @@ p {
 }
 
 .profile-pic {
-    width: 100%;
+    width: 30px;
     border-radius: 50%;
 }
 
@@ -47,7 +41,7 @@ p {
     font-size: 14px;
 }
 
-.grid-container {
+.all-vids-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     column-gap: 15px;
