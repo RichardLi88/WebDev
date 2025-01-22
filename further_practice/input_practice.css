@@ -64,13 +64,7 @@ p {
 .profile-container {
     border-style: none;
     box-shadow: 0px 0px 5px rgba(0,0,0,0.5);
-    width: 150px;
-    height: 250px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    margin-left: 5px;
-    margin-right: 5px;
-    display: inline-block;
+    width: 100%;
 }
 
 .profile-pic {
@@ -123,4 +117,18 @@ p {
     padding-bottom: 15px;
     margin-right: 10px;
     margin-left: 10px
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 150px 150px 150px;
+    align-items: center;
+    column-gap: 20px;
+    
+}
+
+.profile-desc {
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
 }
