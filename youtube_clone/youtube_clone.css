@@ -1,3 +1,10 @@
+.all-vids-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 15px;
+    row-gap: 30px;
+}
+
 .vid-container {
     width: 100%;
 }
@@ -23,7 +30,7 @@
 }
 
 .vid-desc {
-    width: 210px;
+    flex: 1;
     margin-left: 5px;
     
 }
@@ -41,9 +48,3 @@
     font-size: 14px;
 }
 
-.all-vids-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    column-gap: 15px;
-    row-gap: 30px;
-}
