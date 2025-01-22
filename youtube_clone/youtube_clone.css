@@ -4,6 +4,7 @@
     column-gap: 15px;
     row-gap: 30px;
     padding-right: 20px;
+    padding-left: 20px;
     background-color: rgb(246, 246, 246);
     padding-top: 25px;
 }
@@ -35,11 +36,11 @@
 .vid-title {
     font-weight: 600;
     font-size: 14px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .vid-info {
-    margin-top: 15px;
+    margin-top: 5px;
     display: grid;
     grid-template-columns: 30px 1fr;
 }
@@ -47,6 +48,32 @@
 .channel-pic {
     width: 30px;
     vertical-align: top;
+    display: inline-block;
+    position: relative;
+}
+
+.channel-info {
+    position: absolute;
+    bottom: -16px;
+    width: 200px;
+    height: 60px;
+    background-color: white;
+    box-shadow: 0px 0px 5px rgba(142, 142, 142, 0.7);
+    border-radius: 5px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 150ms;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.channel-pic:hover .channel-info {
+    opacity: 1
+}
+
+.other-info {
+    padding-left: 5px;
 }
 
 .vid-desc {
@@ -63,8 +90,18 @@
 .vid-author,
 .views-date {
     color: rgba(0,0,0,0.7);
-    margin-top: 5px;
-    margin-bottom: 5px;
     font-size: 14px;
 }
+
+.hover-profile-pic-div {
+    width: 50px;
+    padding: 5px 5px 5px 5px;
+}
+
+.hover-profile-pic {
+    width: 40px;
+    border-radius: 50%;
+}
+
+
 
