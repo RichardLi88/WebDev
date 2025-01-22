@@ -64,7 +64,6 @@
 
 .search-bar::placeholder {
     border: none;
-    font-family: Roboto, Arial;
     font-size: 16px;
     
 }
@@ -97,7 +96,6 @@
     transition: opacity 150ms;
     pointer-events: none;
     white-space: nowrap;
-    font-family: Roboto, Arial;
     font-size: 16px;
 }
 
@@ -166,7 +164,6 @@
     right: 60px;
     top: 15px;
     background-color: red;
-    font-family: Roboto, Arial;
     border-radius: 50%;
     width: 15px;
     height: 15px;
