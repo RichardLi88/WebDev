@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>On Key Up</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <input class="input-bar" onkeyup="onPress();" type="text" placeholder="Search">
+    <p class="js-msg"></p>
+    <script>
+        function onPress() {
+            const element = document.querySelector(".input-bar").value;
+            document.querySelector('.js-msg').innerHTML = element;
+
+        }
+    </script>
+</body>
+
+</html>
