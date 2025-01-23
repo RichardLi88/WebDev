@@ -2,11 +2,31 @@
 <html>
 
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="to-do-list.css">
 </head>
 
 <body>
-    <script src="myscripts.js"></script>
+    <div class="to-do-title">To do List</div>
+    <div class="to-do-body">
+        <div class="to-do-input">
+            <input class="js-search-bar" placeholder="Todo name" type="text">
+            <input type="date" class="js-date">
+            <button class="js-add-btn" onclick="addAction();">Add</button>
+        </div>
+        <div class="to-do-body-title">
+            <p class="to-do-body-name">To-do</p>
+            <p class="to-do-body-date">Date</p>
+        </div>
+        <div class="js-items">
+
+
+        </div>
+        <script src="to-do-list.js">
+        </script>
 </body>
 
 </html>
