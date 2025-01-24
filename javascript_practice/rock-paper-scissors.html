@@ -105,9 +105,16 @@
       justify-content: center;
     }
 
-    .reset-btn {
-      width: 20%;
-      height: 50%;
+    .btns {
+      width: 25%;
+      display: flex;
+      flex-direction: column;
+      row-gap: 10%;
+    }
+
+    .reset-btn,
+    .auto-btn {
+      height: 40%;
       border-radius: 10px;
       border: none;
       color: white;
@@ -115,7 +122,8 @@
       opacity: 0.8;
     }
 
-    .reset-btn:hover {
+    .reset-btn:hover,
+    .auto-btn:hover {
       opacity: 1;
     }
   </style>
@@ -144,11 +152,15 @@
       </div>
       <div class="game-result">Play a game!</div>
       <div class="game-score">
-        <button class="reset-btn" onclick="
-                      reset();
-                      ">
-          Reset
-        </button>
+        <div class="btns">
+          <button class="reset-btn" onclick="
+          reset();
+          ">
+            Reset
+          </button>
+          <button class="auto-btn" onclick="
+            autoPlay();">Autoplay</button>
+        </div>
         <div class="score-display">
         </div>
       </div>
@@ -223,6 +235,25 @@
       localStorage.setItem('score', JSON.stringify(scores));
       document.querySelector(".game-result").innerHTML = "Game is Reset!";
       document.querySelector(".score-display").innerHTML = `Wins: ${scores.win} Draws: ${scores.draw} Losses: ${scores.lose}`;
+    }
+
+    let isAutoPlay = false;
+    let intervalId;
+
+    function autoPlay() {
+      if (!isAutoPlay) {
+        console.log("i have reached here");
+        isAutoPlay = true;
+        intervalId = setInterval(function () {
+          const humanMove = computerMove();
+          getResult(humanMove);
+        }, 1000);
+        document.querySelector(".auto-btn").innerHTML = "Stop";
+      } else {
+        document.querySelector(".auto-btn").innerHTML = "AutoPlay";
+        clearInterval(intervalId);
+        isAutoPlay = false;
+      }
     }
   </script>
 </body>
