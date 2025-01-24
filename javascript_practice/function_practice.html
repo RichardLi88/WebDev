@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Function Practice</title>
+</head>
+
+<body>
+    <button class="add-btn" onclick="
+        addAction();
+        ">Add to Cart</button>
+    <button class="remove-btn" onclick="
+        removeAction();">Remove</button>
+    <p class="js-text"></p>
+
+    <script>
+        let msg = 0;
+        let timeoutId;
+        let doubleClick = false;
+        let intervalStart = false;
+        let interval1Id;
+        let interval2Id;
+
+        function addAction() {
+            msg += 1;
+            document.querySelector(".js-text").innerHTML =
+                "added";
+            if (timeoutId) clearTimeout(timeoutId);
+            timeoutId = setTimeout(function () {
+                document.querySelector(".js-text").innerHTML = ""
+            }, 2000)
+
+
+            if (msg > 0 && intervalStart === false) {
+                intervalStart = true;
+                interval1Id = setInterval(function () {
+                    document.title = `(${msg}) New Messages`;
+                }, 3000);
+
+                setTimeout(function () {
+                    interval2Id = setInterval(function () {
+                        document.title = `App`;
+                    }, 3000);
+                }, 1500);
+            }
+        }
+
+        function removeAction() {
+            if (msg > 0) msg -= 1;
+            if (msg === 0 && intervalStart) {
+                intervalStart = false;
+                clearInterval(interval1Id);
+                clearInterval(interval2Id);
+                document.title = `App`;
+            }
+        }
+    </script>
+</body>
+
+</html>
