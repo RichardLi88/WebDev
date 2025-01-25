@@ -134,32 +134,23 @@
     <div class="square-background">
       <div class="game-title">Rock Paper Scissors!</div>
       <div class="game-choice">
-        <button class="btn-rock" onclick="
-                        getResult('rock');
-                        ">
+        <button class="btn-rock">
           <img class="rock" src="img/rock.png" />
         </button>
-        <button class="btn-paper" onclick="
-                        getResult('rock');
-                        ">
+        <button class="btn-paper">
           <img class="paper" src="img/paper.png" />
         </button>
-        <button class="btn-scissors" onclick="
-                        getResult('rock');
-                        ">
+        <button class="btn-scissors">
           <img class="scissors" src="img/scissors.png" />
         </button>
       </div>
       <div class="game-result">Play a game!</div>
       <div class="game-score">
         <div class="btns">
-          <button class="reset-btn" onclick="
-          reset();
-          ">
+          <button class="reset-btn">
             Reset
           </button>
-          <button class="auto-btn" onclick="
-            autoPlay();">Autoplay</button>
+          <button class="auto-btn">Autoplay</button>
         </div>
         <div class="score-display">
         </div>
@@ -184,7 +175,7 @@
       }
     }
 
-    function getResult(humanMove) {
+    const getResult = (humanMove) => {
       let opponentMove = computerMove();
       let result = "";
       if (humanMove === "rock") {
@@ -221,6 +212,7 @@
           result = "You chose scissors. Opponent chose scissors. Draw.";
         }
       }
+
       localStorage.setItem("score", JSON.stringify(scores));
 
       document.querySelector(".game-result").innerHTML = result;
@@ -228,16 +220,27 @@
       return result;
     }
 
+    let isAutoPlay = false;
+
     function reset() {
       scores.win = 0;
       scores.draw = 0;
       scores.lose = 0;
       localStorage.setItem('score', JSON.stringify(scores));
+
+      if (isAutoPlay) {
+        autoPlay();
+      }
+
       document.querySelector(".game-result").innerHTML = "Game is Reset!";
       document.querySelector(".score-display").innerHTML = `Wins: ${scores.win} Draws: ${scores.draw} Losses: ${scores.lose}`;
+
+      setTimeout(() => {
+        document.querySelector(".game-result").innerHTML = "Play a game!";
+      }, 2000);
     }
 
-    let isAutoPlay = false;
+
     let intervalId;
 
     function autoPlay() {
@@ -255,6 +258,36 @@
         isAutoPlay = false;
       }
     }
+
+    //setting the onclick function calls
+    const playerRock = document.querySelector('.btn-rock');
+    const playerPaper = document.querySelector('.btn-paper');
+    const playerScissors = document.querySelector('.btn-scissors');
+
+    playerRock.addEventListener('click', () => {
+      getResult('rock');
+    });
+    playerPaper.addEventListener('click', () => {
+      getResult('paper');
+    });
+    playerScissors.addEventListener('click', () => {
+      getResult('scissors');
+    });
+
+    const resetBtn = document.querySelector('.reset-btn');
+    resetBtn.addEventListener('click', reset);
+
+    const autoBtn = document.querySelector('.auto-btn');
+    autoBtn.addEventListener('click', autoPlay);
+
+
+    //running the game with keys -> r,p,s
+
+    document.body.addEventListener('keydown', () => {
+      if (event.key === 'r') getResult('rock');
+      else if (event.key === 'p') getResult('paper');
+      else if (event.key === 's') getResult('scissors');
+    });
   </script>
 </body>
 
