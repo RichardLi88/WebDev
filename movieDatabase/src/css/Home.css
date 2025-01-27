@@ -1,0 +1,14 @@
+.movie-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    background-color: lightpink;
+    justify-items: center;
+}
+
+@media screen and (min-width: 600px) {
+    grid-template-columns: 2fr;
+}
+
+@media screen and (min-width: 1000px) {
+}

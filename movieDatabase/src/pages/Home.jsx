@@ -1,7 +1,12 @@
+import Card from "../components/Card";
+import "../css/Home.css";
+
 function Home() {
   return (
     <>
-      <div>Home</div>
+      <div className="movie-grid">
+        <Card />
+      </div>
     </>
   );
 }
