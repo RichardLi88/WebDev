@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Transform Practice</title>
+    <style>
+        .parent {
+            width: 400px;
+            height: 400px;
+            background-color: lightblue;
+            position: relative;
+        }
+
+        .child {
+            background-color: red;
+            height: 50%;
+            width: 50%;
+            animation: animation_practice 2s ease-in-out infinite alternate;
+        }
+
+        .control-btn {
+            margin-top: 30px;
+            width: 400px;
+            height: 100px;
+            background-color: lightpink;
+            border: none;
+            transition: opacity 150ms;
+        }
+
+        .control-btn:hover {
+            opacity: 0.8;
+        }
+
+
+        @keyframes animation_practice {
+            25% {
+                transform: translate(0, 100%);
+            }
+
+            50% {
+                transform: translate(100%, 100%);
+            }
+
+            75% {
+                transform: translateX(100%);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>CSS Transform Practice</h1>
+    <div class="parent">
+        <div class="child"></div>
+    </div>
+    <div>
+        <button id="control" class="control-btn">Play</button>
+    </div>
+    <script>
+        const controlBtn = document.getElementById("control");
+        let active = true;
+        controlBtn.innerText = "Stop";
+
+        const square = document.querySelector(".child");
+
+        controlBtn.addEventListener("click", () => {
+            if (active) {
+                square.style.animationPlayState = 'paused';
+                controlBtn.innerText = "Play";
+                active = false;
+            } else {
+                square.style.animationPlayState = 'running';
+                controlBtn.innerText = "Stop";
+                active = true;
+            }
+        })
+
+    </script>
+</body>
+
+</html>
