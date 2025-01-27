@@ -5,7 +5,10 @@ function Home() {
   return (
     <>
       <div className="movie-grid">
-        <Card />
+        {Array.from({ length: 10 }).map((_, index) => (
+          <Card key={index} />
+        ))}
+        ;
       </div>
     </>
   );
