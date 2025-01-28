@@ -6,13 +6,12 @@ function Home() {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     const getMovies = async () => {
       try {
-        console.log("start");
         const popularMovies = await getPopularMovies();
-        console.log("here");
         setMovies(popularMovies);
       } catch (err) {
         setError("Failed to fetch movies");
@@ -24,20 +23,50 @@ function Home() {
     getMovies();
   }, []);
 
-  if (loading) {
-    return <div>Loading...</div>;
-  } else if (error) {
-    return <div>{error}</div>;
-  }
+  const handleChange = async (e) => {
+    e.preventDefault();
+    if (!searchQuery.trim()) {
+      return;
+    } else if (loading) {
+      return;
+    }
+    try {
+      setLoading(true);
+      const getMovies = await searchMovies(searchQuery);
+      setMovies(getMovies);
+    } catch (err) {
+      setError("Failed to fetch movies");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <>
-      <div className="movie-grid">
-        {movies.map((movie, index) => (
-          <Card key={movie.id} movie={movie} />
-        ))}
-        ;
+      <div className="div-search">
+        <input
+          type="search"
+          className="search-bar"
+          placeholder="Search for a movie"
+          value={searchQuery}
+          onChange={(e) => {
+            setSearchQuery(e.target.value);
+          }}
+        />
+        <button className="search-btn" onClick={handleChange}>
+          Search
+        </button>
       </div>
+      {loading ? (
+        <div>Loading...</div>
+      ) : (
+        <div className="movie-grid">
+          {movies.map((movie, index) => (
+            <Card key={movie.id} movie={movie} />
+          ))}
+          ;
+        </div>
+      )}
     </>
   );
 }

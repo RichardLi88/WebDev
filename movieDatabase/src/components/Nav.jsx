@@ -8,14 +8,7 @@ function Nav() {
           Movie Finder
         </Link>
       </div>
-      <div className="nav-mid">
-        <input
-          type="search"
-          className="search-bar"
-          placeholder="Search for a movie"
-        />
-        <button className="search-btn">Search</button>
-      </div>
+      <div className="nav-mid"></div>
       <div className="nav-right">
         <Link className="nav-home" to="/">
           Home

@@ -16,7 +16,7 @@ function Card({ movie }) {
             {movie.title}
           </div>
           <div key={movie.release_date} className="movie-date">
-            {movie.release_date}
+            {movie.release_date.split("-")[0]}
           </div>
         </div>
       </div>
