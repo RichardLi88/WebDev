@@ -2,11 +2,19 @@ import Card from "../components/Card";
 import "../css/Home.css";
 
 function Home() {
+  const movies = [
+    {
+      title: "John Wick",
+      release_date: "2022",
+      poster_path: "abc",
+      id: "1",
+    },
+  ];
   return (
     <>
       <div className="movie-grid">
-        {Array.from({ length: 10 }).map((_, index) => (
-          <Card key={index} />
+        {movies.map((movie, index) => (
+          <Card key={movie.id} movie={movie} />
         ))}
         ;
       </div>

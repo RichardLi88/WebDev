@@ -1,18 +1,18 @@
 import "../css/Card.css";
 
-function Card() {
+function Card({ movie }) {
   return (
     <>
       <div className="movie-container">
         <div className="movie-pic">
-          <img src="abc" alt="Fast and Furious"></img>
+          <img src={movie.poster_path} alt="Fast and Furious"></img>
         </div>
         <div className="movie-desc">
-          <div key="1" className="movie-title">
-            Fast and Furious
+          <div key={movie.title} className="movie-title">
+            {movie.title}
           </div>
-          <div key="2" className="movie-date">
-            February 2022
+          <div key={movie.date} className="movie-date">
+            {movie.date}
           </div>
         </div>
       </div>
