@@ -5,14 +5,18 @@ function Card({ movie }) {
     <>
       <div className="movie-container">
         <div className="movie-pic">
-          <img src={movie.poster_path} alt="Fast and Furious"></img>
+          <img
+            src={`http://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+            alt={movie.title}
+            className="movie-img"
+          ></img>
         </div>
         <div className="movie-desc">
           <div key={movie.title} className="movie-title">
             {movie.title}
           </div>
-          <div key={movie.date} className="movie-date">
-            {movie.date}
+          <div key={movie.release_date} className="movie-date">
+            {movie.release_date}
           </div>
         </div>
       </div>
