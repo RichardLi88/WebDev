@@ -5,7 +5,6 @@ import { searchMovies, getPopularMovies } from "../MovieFunctions";
 function Home() {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
@@ -14,17 +13,15 @@ function Home() {
         const popularMovies = await getPopularMovies();
         setMovies(popularMovies);
       } catch (err) {
-        setError("Failed to fetch movies");
+        console.log({ err });
       } finally {
         setLoading(false);
       }
     };
-
     getMovies();
   }, []);
 
-  const handleChange = async (e) => {
-    e.preventDefault();
+  const handleChange = async () => {
     if (!searchQuery.trim()) {
       return;
     } else if (loading) {
@@ -35,7 +32,7 @@ function Home() {
       const getMovies = await searchMovies(searchQuery);
       setMovies(getMovies);
     } catch (err) {
-      setError("Failed to fetch movies");
+      console.log({ err });
     } finally {
       setLoading(false);
     }
@@ -51,20 +48,21 @@ function Home() {
           value={searchQuery}
           onChange={(e) => {
             setSearchQuery(e.target.value);
+            handleChange();
           }}
+          onKeyDown={(e) => (e.key === "Enter" ? handleChange() : null)}
         />
         <button className="search-btn" onClick={handleChange}>
           Search
         </button>
       </div>
       {loading ? (
-        <div>Loading...</div>
+        <div className="div-load">Loading...</div>
       ) : (
         <div className="movie-grid">
           {movies.map((movie, index) => (
             <Card key={movie.id} movie={movie} />
           ))}
-          ;
         </div>
       )}
     </>

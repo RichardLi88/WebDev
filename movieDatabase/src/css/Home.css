@@ -3,7 +3,7 @@
     display: grid;
     grid-template-columns: 1fr;
     justify-items: center;
-    row-gap: 60px;
+    row-gap: 40px;
     margin-top: 20px;
 }
 
@@ -22,6 +22,11 @@
     outline: none;
 }
 
+.search-bar {
+    height: 40px;
+    flex: 1;
+}
+
 .search-btn {
     height: 40px;
     border: none;
@@ -32,6 +37,11 @@
 
 .search-btn:hover {
     background-color: rgb(210, 210, 210);
+}
+
+.div-load {
+    text-align: center;
+    font-size: 40px;
 }
 
 @media screen and (min-width: 600px) {
@@ -46,7 +56,7 @@
     }
 
     .search-bar {
-        max-width: 800px;
+        max-width: 800px !important;
     }
 }
 
@@ -62,7 +72,7 @@
     }
 
     .search-bar {
-        max-width: 1200px;
+        max-width: 1200px !important;
     }
 }
 

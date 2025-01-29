@@ -43,12 +43,6 @@
     background-color: rgb(129, 0, 210);
 }
 
-.nav-home {
-    display: none;
-}
-
-
-
 @media screen and (min-width: 600px) {
     .nav-left {
         display: flex;
