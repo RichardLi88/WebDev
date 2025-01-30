@@ -1,18 +1,17 @@
 import dotenv from "dotenv";
 import express from "express";
 import ConnectDB from "./config/db.js";
+import router from "./routes/productRoute.js";
 
 dotenv.config();
 
 const app = express();
+const PORT = process.env.PORT || 5000;
 
-app.get("/", (req, res) => {
-  res.send("API is running...");
-});
+app.use(express.json());
+app.use("/api/products", router);
 
-app.listen(5000, () => {
+app.listen(PORT, () => {
   ConnectDB();
-  console.log("Server started at http://localhost:5000");
+  console.log(`Server started at http://localhost:${PORT || 5000}`);
 });
-
-//4UA0T6hQMiWOTelu
