@@ -8,25 +8,30 @@ function Home() {
   const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
-    const getMovies = async () => {
-      try {
-        const popularMovies = await getPopularMovies();
-        setMovies(popularMovies);
-      } catch (err) {
-        console.log({ err });
-      } finally {
-        setLoading(false);
-      }
-    };
     getMovies();
   }, []);
 
-  const handleChange = async () => {
+  async function getMovies() {
+    try {
+      const popularMovies = await getPopularMovies();
+      setMovies(popularMovies);
+    } catch (err) {
+      console.log({ err });
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  const handleChange = async (e) => {
     if (!searchQuery.trim()) {
       return;
     } else if (loading) {
       return;
+    } else if (e.target.value === "") {
+      await getMovies();
+      return;
     }
+
     try {
       setLoading(true);
       const getMovies = await searchMovies(searchQuery);
@@ -48,7 +53,7 @@ function Home() {
           value={searchQuery}
           onChange={(e) => {
             setSearchQuery(e.target.value);
-            handleChange();
+            handleChange(e);
           }}
           onKeyDown={(e) => (e.key === "Enter" ? handleChange() : null)}
         />

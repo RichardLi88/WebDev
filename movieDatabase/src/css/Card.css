@@ -8,6 +8,35 @@
 .movie-pic {
     height: 450px;
     box-sizing: border-box;
+    position: relative;
+}
+
+.movie-fav {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    font-size: 40px;
+    display: none;
+    transition: scale 150ms;
+}
+
+.movie-container:hover .movie-fav {
+    display: inline-block;
+}
+
+.movie-fav:hover {
+    scale: 120%;
+    cursor: pointer;
+}
+
+.liked {
+    color: red;
+    display: inline-block;
+}
+
+.not-liked {
+    display: "";
+    color: white;
 }
 
 .movie-img {
