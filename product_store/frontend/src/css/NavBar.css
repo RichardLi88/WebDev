@@ -1,0 +1,37 @@
+p {
+    display: inline-block;
+    margin: 0px;
+    font-size: 24px;;
+}
+.nav-bar {
+    display: flex;
+    flex: row;
+    align-items: center;
+    background-color: rgb(48, 48, 48);
+    height: 60px;
+    box-sizing: border-box;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    flex: 2;
+    justify-content: left;
+    margin-left: 20px;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    justify-content: right;
+    margin-right: 20px;
+}
+
+.nav-product-img {
+    width: 40px;
+}
+
+.nav-plus {
+    width: 30px;
+}
