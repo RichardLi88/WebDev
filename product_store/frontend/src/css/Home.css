@@ -1,7 +1,8 @@
 .home-container {
-    background-color: rgb(50, 50, 50);
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     column-gap: 10px;
     row-gap: 10px;
+    box-sizing: border-box;
+    padding: 10px;
 }
