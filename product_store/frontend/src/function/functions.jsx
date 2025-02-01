@@ -13,3 +13,18 @@ export async function createProduct(product) {
     console.log(error.message);
   }
 }
+
+export async function getProducts() {
+  try {
+    const result = await fetch("http://localhost:5000/api/products", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const data = await result.json();
+    return data;
+  } catch (error) {
+    console.log(error.message);
+  }
+}
