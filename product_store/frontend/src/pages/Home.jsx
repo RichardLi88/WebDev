@@ -8,7 +8,7 @@ function Home() {
   return (
     <>
       {modal && <Modal toggleModal={toggleModal} />}
-      <div className="home-container">hello worlds;</div>
+      <div className="home-container">hello world</div>
     </>
   );
 }
