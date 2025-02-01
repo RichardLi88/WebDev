@@ -12,8 +12,10 @@ function Modal({ toggleModal }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const result = await createProduct(product);
-    console.log(result);
+    const { success, data } = await createProduct(product);
+    if (!success) {
+      console.log("not successful");
+    }
     toggleModal();
   };
   return (

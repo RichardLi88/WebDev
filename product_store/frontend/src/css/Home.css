@@ -1,8 +1,7 @@
 .home-container {
     background-color: rgb(50, 50, 50);
-    position: fixed;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-    top: 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 10px;
+    row-gap: 10px;
 }
