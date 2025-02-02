@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import "../css/Card.css";
 import trash from "../img/icons8-trash.svg";
-import { deleteProduct } from "../function/functions";
+import { ProductContext } from "../context/productContext";
 
 function Card({ data }) {
   const [id, setId] = useState("");
@@ -9,14 +9,8 @@ function Card({ data }) {
     setId(data._id);
   }, []);
 
-  async function handleDelete() {
-    try {
-      const result = await deleteProduct(id);
-      console.log(result);
-    } catch (err) {
-      console.log(err.message);
-    }
-  }
+  const { handleDeleteProduct } = useContext(ProductContext);
+
   return (
     <div className="card">
       <div className="div-img">
@@ -27,7 +21,12 @@ function Card({ data }) {
           <div className="card-name">{data.name}</div>
           <div className="card-price">{`$${data.price}`}</div>
         </div>
-        <button className="btn-trash" onClick={handleDelete}>
+        <button
+          className="btn-trash"
+          onClick={() => {
+            handleDeleteProduct(id);
+          }}
+        >
           <img className="img-trash" src={trash} />
         </button>
       </div>

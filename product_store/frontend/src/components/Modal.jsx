@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "../css/Modal.css";
 import close from "../img/icons8-close.svg";
-import { createProduct } from "../function/functions";
+import { ProductContext } from "../context/productContext";
 
 function Modal({ toggleModal }) {
   const [product, setProduct] = useState({
@@ -10,19 +10,12 @@ function Modal({ toggleModal }) {
     image: "",
   });
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const { success, data } = await createProduct(product);
-    if (!success) {
-      console.log("not successful");
-    }
-    toggleModal();
-  };
+  const { handleAddProduct } = useContext(ProductContext);
   return (
     <div className="modal">
       <div className="form-container">
         <div className="modal-title">Create your Product</div>
-        <form className="modal-form" onSubmit={(e) => handleSubmit(e)}>
+        <form className="modal-form" onSubmit={() => handleAddProduct(product)}>
           <img className="form-close" src={close} onClick={toggleModal}></img>
           <div className="modal-name">
             <input

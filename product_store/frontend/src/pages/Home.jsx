@@ -1,14 +1,14 @@
-import { useState, useContext, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import Modal from "../components/Modal";
 import "../css/Home.css";
 import { modalContext } from "../context/modalContext";
 import Card from "../components/Card";
-
 import { getProducts } from "../function/functions";
+import { ProductContext } from "../context/productContext";
 
 function Home() {
   const { modal, toggleModal } = useContext(modalContext);
-  const [products, setProducts] = useState([]);
+  const { products, setProducts } = useContext(ProductContext);
 
   useEffect(() => {
     const getData = async () => {
@@ -27,7 +27,7 @@ function Home() {
       {modal && <Modal toggleModal={toggleModal} />}
       <div className="home-container">
         {products.map((product, index) => {
-          return <Card key={index} data={product} />;
+          return <Card key={product._id} data={product} />;
         })}
       </div>
     </>
