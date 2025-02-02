@@ -36,6 +36,7 @@ function ProductProvider({ children }) {
           if (product._id !== id) {
             return product;
           } else {
+            console.log(result.data);
             return result.data;
           }
         })
