@@ -1,5 +1,9 @@
 import { createContext, useState } from "react";
-import { createProduct, deleteProduct } from "../function/functions";
+import {
+  createProduct,
+  deleteProduct,
+  updateProduct,
+} from "../function/functions";
 
 export const ProductContext = createContext();
 
@@ -24,9 +28,32 @@ function ProductProvider({ children }) {
     }
   }
 
+  async function handleUpdateProduct(newProduct, id) {
+    try {
+      const result = await updateProduct(newProduct, id);
+      setProducts(
+        products.map((product) => {
+          if (product._id !== id) {
+            return product;
+          } else {
+            return result.data;
+          }
+        })
+      );
+    } catch (err) {
+      console.log(err.message);
+    }
+  }
+
   return (
     <ProductContext.Provider
-      value={{ products, setProducts, handleAddProduct, handleDeleteProduct }}
+      value={{
+        products,
+        setProducts,
+        handleAddProduct,
+        handleDeleteProduct,
+        handleUpdateProduct,
+      }}
     >
       {children}
     </ProductContext.Provider>

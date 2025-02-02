@@ -1,21 +1,49 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "../css/Modal.css";
 import close from "../img/icons8-close.svg";
 import { ProductContext } from "../context/productContext";
 
-function Modal({ toggleModal }) {
+function Modal({ prefill, modalType, toggleModal }) {
   const [product, setProduct] = useState({
     name: "",
     price: "",
     image: "",
   });
 
-  const { handleAddProduct } = useContext(ProductContext);
+  useEffect(() => {
+    if (prefill) {
+      setProduct({
+        name: prefill.name,
+        price: prefill.price,
+        image: prefill.image,
+      });
+    }
+  }, []);
+
+  const { handleAddProduct, handleUpdateProduct } = useContext(ProductContext);
+
+  function handleSubmit(product) {
+    if (modalType === "create") handleAddProduct(product);
+    else if (modalType === "edit") {
+      handleUpdateProduct(product, prefill._id);
+    }
+    setTimeout(() => {
+      toggleModal();
+    }, 300);
+  }
   return (
     <div className="modal">
       <div className="form-container">
-        <div className="modal-title">Create your Product</div>
-        <form className="modal-form" onSubmit={() => handleAddProduct(product)}>
+        <div className="modal-title">{`${
+          modalType === "create" ? "Create" : "Edit"
+        } your Product`}</div>
+        <form
+          className="modal-form"
+          onSubmit={(e) => {
+            e.preventDefault();
+            handleSubmit(product);
+          }}
+        >
           <img className="form-close" src={close} onClick={toggleModal}></img>
           <div className="modal-name">
             <input
@@ -52,7 +80,7 @@ function Modal({ toggleModal }) {
             />
           </div>
           <button className="modal-submit" type="submit">
-            Add Product
+            {`${modalType === "create" ? "Add" : "Update"} Product`}
           </button>
         </form>
       </div>

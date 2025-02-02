@@ -2,12 +2,19 @@ import { useState, useEffect, useContext } from "react";
 import "../css/Card.css";
 import trash from "../img/icons8-trash.svg";
 import { ProductContext } from "../context/productContext";
+import edit from "../img/icons8-edit.svg";
+import Modal from "../components/Modal";
 
 function Card({ data }) {
   const [id, setId] = useState("");
+  const [editProduct, setEditProduct] = useState(false);
   useEffect(() => {
     setId(data._id);
   }, []);
+
+  function toggleEditProduct() {
+    setEditProduct(!editProduct);
+  }
 
   const { handleDeleteProduct } = useContext(ProductContext);
 
@@ -21,15 +28,27 @@ function Card({ data }) {
           <div className="card-name">{data.name}</div>
           <div className="card-price">{`$${data.price}`}</div>
         </div>
-        <button
-          className="btn-trash"
-          onClick={() => {
-            handleDeleteProduct(id);
-          }}
-        >
-          <img className="img-trash" src={trash} />
-        </button>
+        <div className="card-icon">
+          <button className="btn-icon" onClick={toggleEditProduct}>
+            <img className="img-icon" src={edit} />
+          </button>
+          <button
+            className="btn-icon"
+            onClick={() => {
+              handleDeleteProduct(id);
+            }}
+          >
+            <img className="img-icon" src={trash} />
+          </button>
+        </div>
       </div>
+      {editProduct && (
+        <Modal
+          toggleModal={toggleEditProduct}
+          modalType={"edit"}
+          prefill={data}
+        />
+      )}
     </div>
   );
 }

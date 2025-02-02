@@ -24,7 +24,7 @@ function Home() {
 
   return (
     <>
-      {modal && <Modal toggleModal={toggleModal} />}
+      {modal && <Modal modalType={"create"} toggleModal={toggleModal} />}
       <div className="home-container">
         {products.map((product, index) => {
           return <Card key={product._id} data={product} />;
