@@ -2,6 +2,8 @@ import express from "express";
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
+import connectDB from "./db/mongoose.js";
+import Product from "../product_store/backend/models/Product.js";
 
 const app = express();
 dotenv.config();
@@ -143,4 +145,7 @@ app.delete("/api/users/:id", verify, (req, res) => {
     res.status(403).json("You are not allowed to delete this user");
   }
 });
-app.listen(5000, () => console.log("Listening on port 5000"));
+app.listen(5000, () => {
+  connectDB();
+  console.log("Listening on port 5000");
+});
